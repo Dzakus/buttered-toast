@@ -60,7 +60,6 @@ public class XposedHook  implements IXposedHookZygoteInit {
                     if (cs != null) {
                         Context context = (Context) XposedHelpers.getObjectField(t, "mContext");
                         PackageManager pm = context.getPackageManager();
-                        pm.getApplicationInfo(context.getPackageName(), 0);
                         CharSequence name = pm.getApplicationLabel(pm.getApplicationInfo(context.getPackageName(), 0));
                         SpannableStringBuilder builder = new SpannableStringBuilder(name);
                         builder.append(":\n").append(cs);
